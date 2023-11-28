@@ -1,0 +1,17 @@
+{
+  "type": "mysql",
+  "port": 3306,
+  "host": "localhost",
+  "username": "root",
+  "password": "vertrigo",
+  "database": "crud_workshop_teste",
+  "migrations": [
+    "./src/shared/infra/typeorm/migrations/*.js"
+  ],
+  "entities": [
+    "./src/modules/**/infra/typeorm/entities/*.js"
+  ],
+  "cli": {
+    "migrationsDir": "./src/shared/infra/typeorm/migrations"
+  }
+}
