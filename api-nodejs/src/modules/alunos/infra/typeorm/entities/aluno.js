@@ -1,18 +1,26 @@
-// aluno.entity.js
+const { EntitySchema } = require('typeorm');
 
-const { Entity, PrimaryGeneratedColumn, Column } = require("typeorm");
-
-@Entity('alunos')
-class Aluno {
-
-  @PrimaryGeneratedColumn()
-  id;
-
-  @Column({ type: 'varchar', length: 255, nullable: false })
-  nome;
-
-  @Column({ type: 'varchar', length: 255, nullable: false })
-  turma;
+module.exports = class Aluno {
+  constructor(nome, turma) {
+    this.nome = nome;
+    this.turma = turma;
+  }
 }
 
-module.exports = Aluno;
+module.exports = new EntitySchema({
+  name: 'Aluno',
+  tableName: 'alunos',
+  columns: {
+    id: {
+      type: 'int',
+      primary: true,
+      generated: true,
+    },
+    nome: {
+      type: 'varchar',
+    },
+    turma: {
+      type: 'varchar',
+    },
+  },
+});

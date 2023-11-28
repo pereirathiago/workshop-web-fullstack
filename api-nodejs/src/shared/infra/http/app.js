@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const { router } = require('../http/routes/index')
-const { createConnection } = require('../typeorm/index')
+const createConnection  = require('../typeorm/index')
 
 createConnection()
 const app = express()
