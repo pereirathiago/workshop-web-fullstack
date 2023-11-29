@@ -1,17 +1,19 @@
 const  AlunoRepository  = require('../../infra/typeorm/repositories/aluno-repository')
 
-class CreateAluno {
+class UpdateAluno {
   
   async handle(req, res) {
     const alunoRepository = new AlunoRepository()
+
+    const id = req.params.id
 
     const {
       nome,
       turma
     } = req.body
-    const alunoCriado = await alunoRepository.create(nome, turma)
+    const alunoCriado = await alunoRepository.update(id, nome, turma)
 
-    if(alunoCriado.status === 201) {
+    if(alunoCriado.status === 200) {
       return res.status(alunoCriado.status).json(alunoCriado.data)
     }
 
@@ -19,4 +21,4 @@ class CreateAluno {
   }
 }
 
-module.exports = CreateAluno
+module.exports = UpdateAluno
