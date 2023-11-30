@@ -45,7 +45,7 @@ export function Home() {
                 <tbody>
                     {alunos.map((aluno) => (
                         <tr key={aluno.id}>
-                            <th scope="row">1</th>
+                            <th scope="row">{aluno.id}</th>
                             <td>{aluno.nome}</td>
                             <td>{aluno.turma}</td>
                             <td>
